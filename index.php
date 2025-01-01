@@ -46,7 +46,7 @@ include "includes/nav.php";
                                 <td> $salary</td>
                                 <td> $gender</td>
                                 <td>
-                                 
+                                  <a href='employee/delete.php?id=$empID' class='btn btn-danger'>update</a>
                                  <a href='employee/delete.php?id=$empID' class='btn btn-danger'>Delete</a>
                                  </td>
                                 </tr>
