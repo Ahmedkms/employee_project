@@ -8,7 +8,7 @@ if (isset($_GET["id"])) {
     while ($res = fgets($file)) {
         $row = explode(",", $res);
         if ($row[0] !== $emp_id) {
-            $temp[] = $row;
+            $temp[] = $res;
         }
     }
     fclose($file);
@@ -17,8 +17,8 @@ if (isset($_GET["id"])) {
 
       foreach ($temp as $line) {
         
-        $lineStr = implode(',', $line );
-        fwrite($file, $lineStr);
+        
+        fwrite($file, $line);
     }
     fclose($file);
     header("location: ../index.php");
