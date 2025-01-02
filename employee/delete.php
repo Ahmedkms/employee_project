@@ -1,27 +1,25 @@
 <?php
 
+include("../logicCode/functions.php");
+
 if (isset($_GET["id"])) {
-    $emp_id = $_GET["id"];
-    $temp = [];
-    $file = fopen("../data/employee.csv", 'r');
+    $empID = $_GET["id"];
+    $jsonFilePath = '../data/employees.json';
 
-    while ($res = fgets($file)) {
-        $row = explode(",", $res);
-        if ($row[0] !== $emp_id) {
-            $temp[] = $res;
-        }
-    }
-    fclose($file);
+    
+    if (file_exists($jsonFilePath)) {
+        $fileData = file_get_contents($jsonFilePath);
 
-    $file = fopen("../data/employee.csv", 'w');
+        $decodedDataToArray = json_decode($fileData, true) ?? [];
+        $filteredEmployees = array_filter($decodedDataToArray, 
+        function ($employee ) use($empID)  {
+            return $employee['emp_id'] !== $empID;
+        });        
+        $reindexedData = array_values($filteredEmployees);
+        $encodedData = json_encode($reindexedData, JSON_PRETTY_PRINT);
+        file_put_contents($jsonFilePath, $encodedData);
 
-      foreach ($temp as $line) {
         
-        
-        fwrite($file, $line);
-    }
-    fclose($file);
-    header("location: ../index.php");
+        redirect("../index.php");
+    } 
 }
-
-?>

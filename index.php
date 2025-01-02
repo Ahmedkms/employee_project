@@ -28,33 +28,43 @@ include "includes/nav.php";
             </thead>
             <tbody>
 
-                <?php $file = fopen("data/employee.csv", 'r');
-                while ($res = fgets($file)) {
-                    $row = explode(',', $res);
-                    if (count($row) == 5) {
-                        $empID = trim($row[0]);
-                        $name = trim($row[1]);
-                        $email = trim($row[2]);
-                        $salary = trim($row[3]);
-                        $gender = trim($row[4]);
+                <?php
+                $jsonFile = "data/employees.json";
 
-                        echo "
-                                <tr>
-                                <td>$empID</td>
-                                <td> $name</td>
-                                <td>$email</td>
-                                <td> $salary</td>
-                                <td> $gender</td>
-                                <td>
-                                  <a href='employee/delete.php?id=$empID' class='btn btn-danger'>update</a>
-                                 <a href='employee/delete.php?id=$empID' class='btn btn-danger'>Delete</a>
-                                 </td>
-                                </tr>
-                                ";
+                // Check if the JSON file exists
+                if (file_exists($jsonFile)) {
+                    $fileContent = file_get_contents($jsonFile);
+                    $employees = json_decode($fileContent, true);
+
+                    // Check if decoding was successful and employees exist
+                    if ($employees && is_array($employees)) {
+                        foreach ($employees as $key=> $employee) {
+                            $empID = htmlspecialchars($employee['emp_id']);
+                            $name = htmlspecialchars($employee['name']);
+                            $email = htmlspecialchars($employee['email']);
+                            $salary = htmlspecialchars($employee['salary']);
+                            $gender = htmlspecialchars($employee['gender']);
+
+                            echo "
+                <tr>
+                    <td>$empID</td>
+                    <td>$name</td>
+                    <td>$email</td>
+                    <td>$salary</td>
+                    <td>$gender</td>
+                    <td>
+                        <a href='employee/update.php?id=$empID' class='btn btn-warning'>Update</a>
+                        <a href='employee/delete.php?id=$empID' class='btn btn-danger'>Delete</a>
+                    </td>
+                </tr>
+            ";
+                        }
+                    } else {
+                        echo "<tr><td colspan='6'>No employees found in the file.</td></tr>";
                     }
                 }
-                fclose($file);
                 ?>
+
 
             </tbody>
 
