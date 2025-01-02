@@ -58,10 +58,34 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
    
    }else{
 
-    $file = fopen("../data/employee.csv", 'a');
-    fwrite($file, "$emp_id,$name,$email,$salary,$gender \n");
+    $jsonFilePath = "../data/employees.json";
+
+    // Check if the JSON file exists
+
+    if (file_exists($jsonFilePath)) {
+        $fileContent = file_get_contents($jsonFilePath);
+        $employees = json_decode($fileContent, true); 
+        
+    } else {
+        $employees = []; 
+    }
+    
+    // Add the new employee data
+    $newEmployee = [
+        'emp_id' => $emp_id,
+        'name' => $name,
+        'email' => $email,
+        'salary' => $salary,
+        'gender' => $gender
+    ];
+    $employees[] = $newEmployee;
+    $decodedTojsonData = json_encode($employees, JSON_PRETTY_PRINT);
+    
+    // Save the updated data back to the JSON file
+
+    file_put_contents($jsonFilePath, $decodedTojsonData);
+
     redirect("../index.php");
-    fclose($file);
 
 
    }
