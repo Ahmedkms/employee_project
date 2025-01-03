@@ -1,0 +1,14 @@
+[
+    {
+        "name": null,
+        "$email": "ahmed.khfci377@gmail.com",
+        "type": "admin",
+        "password": "7c222fb2927d828af22f592134e8932480637c0d"
+    },
+    {
+        "name": "salem mohamed",
+        "$email": "salem@gmail.com",
+        "type": "admin",
+        "password": "7c222fb2927d828af22f592134e8932480637c0d"
+    }
+]
