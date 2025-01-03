@@ -33,20 +33,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $data = json_decode(file_get_contents($fileJson), true);
     
         $isExist = false;
-       
-        foreach ($data as $user) {
-            // Hash the provided password with sha1
-            $hashed_input_password = sha1(trim($password));
-            if (
-                $user['email'] === $email &&
-                hash_equals($user['password'], $hashed_input_password)
-            ){
-                $isExist = true;
-                $name = $user['name'];
-                $email = $user['email'];
-                break;
-            }
+        $hashed_password = sha1($password);
+        foreach ($data as $user){
+           if( $email === $user['email'] && $hashed_password === trim($user['password']))
+             {
+                 $isExist = true;
+                 break;
+             }         
         }
+       
+     
         if ($isExist) {
             
             $_SESSION["authenticate"] = ["name" => $name, "email" => $email];

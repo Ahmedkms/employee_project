@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     }
     $newUser = [
         'name' => $name,
-        '$email'=>$email,
+        'email'=>$email,
         'type'=>$type,
         'password'=>$hashed_password
     ];
