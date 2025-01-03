@@ -1,0 +1,20 @@
+[
+    {
+        "name": "sleem ahmed",
+        "$email": "sleem@gmail.com",
+        "type": "user",
+        "password": "454f57ac0220e9e4d0bc508f663e11efda07df86"
+    },
+    {
+        "name": "ahmed",
+        "$email": "ahmed@gmail.com",
+        "type": "user",
+        "password": "cdc8e8820ddf377ec75ef13c7d70303764e38b3a"
+    },
+    {
+        "name": "mohamed",
+        "$email": "Mohamed@gmail.com",
+        "type": "user",
+        "password": "8bd5551c97add57cb5b42a828245b982d9711c7f"
+    }
+]

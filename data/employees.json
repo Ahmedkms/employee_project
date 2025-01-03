@@ -19,5 +19,12 @@
         "email": "sleem@gmail.com",
         "salary": "50000",
         "gender": "Male"
+    },
+    {
+        "emp_id": "32569",
+        "name": "ahmed",
+        "email": "ahmed@gmail.com",
+        "salary": "9099",
+        "gender": "Male"
     }
 ]

@@ -10,48 +10,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = isset($_POST["password"]) ? sanitizeInput($_POST["password"]) : '';
 
     //validate email
-       if(required($email)){
-        $error [] = " email is required"; 
+    if (required($email)) {
+        $error[] = " email is required";
+    } elseif (emailvalidate($email)) {
+        $error[] = "invalid email format";
+    }
 
-       }elseif(emailvalidate($email)){
-        $error[] = "invalid email format"; 
-       }
-    
-       //validate password 
+    //validate password 
     if (required($password)) {
         $error[] = "password is required input";
     } elseif (minimumchars($password, 6)) {
         $error[] = "password must be more than 6 chars";
     }
     // error handling
-    if (!empty($error)){
+    if (!empty($error)) {
         $_SESSION["errors"] = $error;
         redirect("../login.php");
     }
     // handeling login data and check if it exist or not
-    else{
-        $file = fopen("../data/users.csv",'r');
+    else{ 
+        $fileJson = "../data/users.json";
+        $data = json_decode(file_get_contents($fileJson), true);
+    
         $isExist = false;
-        while($res = trim(fgets($file))){
-
-            $rowdata = explode(',' , $res);
-            $hashed_password = trim(sha1($password));
-            if($email === trim($rowdata[1]) && $hashed_password === $rowdata[3]){
-               $isExist = true;
-               break;
-            }else{
-               
+       
+        foreach ($data as $user) {
+            // Hash the provided password with sha1
+            $hashed_input_password = sha1(trim($password));
+            if (
+                $user['email'] === $email &&
+                hash_equals($user['password'], $hashed_input_password)
+            ){
+                $isExist = true;
+                $name = $user['name'];
+                $email = $user['email'];
+                break;
             }
-
         }
-        if($isExist){
-            $_SESSION ["authenticate"]= ["$rowdata[0], $email"];
+        if ($isExist) {
+            
+            $_SESSION["authenticate"] = ["name" => $name, "email" => $email];
             redirect("../index.php");
-        }else{
-            $error[] = "invalid email or password";
-            $_SESSION["errors"] =  $error ; 
+        } else {
+            $error[] = "Invalid email or password";
+            $_SESSION["errors"] = $error;
             redirect("../login.php");
         }
-    
     }
+    
 }

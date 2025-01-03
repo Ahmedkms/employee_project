@@ -7,8 +7,7 @@ include "includes/nav.php";
     <div class="text-center">
         <h2 class="mb-4">Employee Registration System</h2>
         <p class="lead">
-            Manage employees easily by registering, updating, and deleting their data. Use the navigation menu to get
-            started.
+            
         </p>
     </div>
 

@@ -59,8 +59,23 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
    else{
     $_SESSION["authenticate"] = [$name , $email];
     $hashed_password = sha1($password);
-    $file = fopen("../data/users.csv",'a');
-    fwrite($file,"$name,$email,,$type,$hashed_password\n");
+
+    $fileJson = '../data/users.json';
+    if (file_exists($fileJson)){
+        $fileData = file_get_contents($fileJson);
+        $decodedDataIntoArray = json_decode($fileData,true);
+
+    }
+    $newUser = [
+        'name' => $name,
+        '$email'=>$email,
+        'type'=>$type,
+        'password'=>$hashed_password
+    ];
+    $decodedDataIntoArray [] = $newUser;
+    $dataEncoded = json_encode($decodedDataIntoArray ,JSON_PRETTY_PRINT);
+    file_put_contents($fileJson,$dataEncoded);
+
     redirect("../index.php");
    }
 
