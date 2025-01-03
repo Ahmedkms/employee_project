@@ -59,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
    else{
     $_SESSION["authenticate"] = [$name , $email];
     $hashed_password = sha1($password);
+    
     $file = fopen("../data/users.csv",'a');
     fwrite($file,"$name,$email,,$type,$hashed_password\n");
     redirect("../index.php");
