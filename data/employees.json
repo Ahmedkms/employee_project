@@ -1,37 +1,7 @@
-[
-    {
-        "emp_id": "10190",
-        "name": "lelah ahmed",
-        "email": "lelah@gmail.com",
-        "salary": "20111",
-        "gender": "Female"
-    },
-    {
-        "emp_id": "23111",
-        "name": "sleem ahmed",
-        "email": "sleem@gmail.com",
-        "salary": "50000",
-        "gender": "Male"
-    },
-    {
-        "emp_id": "32569",
-        "name": "ahmed",
-        "email": "ahmed@gmail.com",
-        "salary": "9099",
-        "gender": "Male"
-    },
-    {
-        "emp_id": "23453",
-        "name": "osama mohamed",
-        "email": "osama@gmail.com",
-        "salary": "23000",
-        "gender": "Male"
-    },
-    {
-        "emp_id": "343454",
-        "name": "mohsen ahmed",
-        "email": "mohsen@gmail.com",
-        "salary": "12500",
-        "gender": "Male"
-    }
-]
+{
+    "emp_id": "7685",
+    "name": "mohanad",
+    "email": "mohanad@gmail.com",
+    "salary": "12345",
+    "gender": "Male"
+}
