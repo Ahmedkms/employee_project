@@ -26,5 +26,12 @@
         "email": "osama@gmail.com",
         "salary": "23000",
         "gender": "Male"
+    },
+    {
+        "emp_id": "343454",
+        "name": "mohsen ahmed",
+        "email": "mohsen@gmail.com",
+        "salary": "12500",
+        "gender": "Male"
     }
 ]
