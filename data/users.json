@@ -1,10 +1,14 @@
 [
-  
-
     {
         "name": "osama mohamed",
         "email": "osama@gmail.com",
         "type": "user",
         "password": "ddba63568c24101580331b8e85892421a59bed31"
+    },
+    {
+        "name": "marwa",
+        "email": "marwakhalifa39@gmail.com",
+        "type": "user",
+        "password": "b8ae41fa26683c0c6f4b4c9175b321fed174498e"
     }
 ]

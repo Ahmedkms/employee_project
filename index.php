@@ -36,7 +36,7 @@ include "includes/nav.php";
                     $employees = json_decode($fileContent, true);
 
                     // Check if decoding was successful and employees exist
-                    if ($employees && is_array($employees)) {
+                    if ($employees && is_array(value: $employees)) {
                         foreach ($employees as $key=> $employee) {
                             $empID = htmlspecialchars($employee['emp_id']);
                             $name = htmlspecialchars($employee['name']);
@@ -54,6 +54,7 @@ include "includes/nav.php";
                     <td>
                         <a href='employee/update.php?id=$empID' class='btn btn-warning'>Update</a>
                         <a href='employee/delete.php?id=$empID' class='btn btn-danger'>Delete</a>
+                       
                     </td>
                 </tr>
             ";

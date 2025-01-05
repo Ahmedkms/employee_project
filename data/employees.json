@@ -1,7 +1,23 @@
-{
-    "emp_id": "7685",
-    "name": "mohanad",
-    "email": "mohanad@gmail.com",
-    "salary": "12345",
-    "gender": "Male"
-}
+[
+    {
+        "emp_id": "05968",
+        "name": "ahmed khamis",
+        "email": "ahmedKhamis@gmail.com",
+        "salary": "33333",
+        "gender": "Male"
+    },
+    {
+        "emp_id": "15911",
+        "name": "mohamed ali",
+        "email": "mohamedAli@gmail.com",
+        "salary": "7000",
+        "gender": "Male"
+    },
+    {
+        "emp_id": "12765",
+        "name": "lelah ahmed",
+        "email": "lelah@gmail.com",
+        "salary": "12000",
+        "gender": "Female"
+    }
+]

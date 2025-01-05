@@ -28,11 +28,11 @@ if (isset($_GET['id'])) {
     <div class="ms-auto" style="width: 97%; ">
     <h1 class="my-4">Update Existing Emplyee</h1>
 
-    <form action="../handeller/handelUpdate_employee.php" method="POST">
+    <form action="../handeller/handelUpdate_employee.php?id= <?php echo htmlspecialchars($empID) ?>" method="POST">
     <div class="mb-3">
         <label for="id" class="form-label">Employee ID</label>
         <input type="number" class="form-control" id="ID" name="emp_id" 
-               value="<?php echo htmlspecialchars($empData['emp_id'] ?? ''); ?>" readonly>
+               value="<?php echo htmlspecialchars($empData['emp_id']); ?>" readonly>
     </div>
     <div class="mb-3">
         <label for="name" class="form-label">Full Name</label>
