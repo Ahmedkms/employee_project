@@ -7,12 +7,15 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
+
             <ul class="navbar-nav w-100 d-flex justify-content-between mb-0">
+                <?php if (isset($_SESSION["authenticate"])): ?>
                 <div class="d-flex gap-3 align-items-center justify-content-center">
                     <li class="nav-item">
                         <a class="nav-link" href="http://localhost/employee_peoject/employee/create.php">Add Emplyee</a>
                     </li>
                 </div>
+                <?php endif;?>
                 <!-- <li class="nav-item">
                         <a class="nav-link" href="http://localhost/employee_peoject//employee/create.php">create Employee</a>
                     </li> -->
@@ -21,7 +24,7 @@
                 <?php if(!isset($_SESSION["authenticate"])):   ?>
             
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/employee_peoject/register.php">Register</a>
+                        <a class="nav-link " href="http://localhost/employee_peoject/register.php">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="http://localhost/employee_peoject/login.php">Login</a>
